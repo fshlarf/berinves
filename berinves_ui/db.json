@@ -1,0 +1,34 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "nama": "Faishal",
+      "umur": "24"
+    },
+    {
+      "id": 2,
+      "nama": "Arif",
+      "umur": "24"
+    },
+    {
+      "nama": "Limbad",
+      "umur": "50",
+      "id": 3
+    },
+    {
+      "nama": "David",
+      "umur": "12",
+      "id": 4
+    },
+    {
+      "nama": "Fauzan",
+      "umur": "19",
+      "id": 5
+    },
+    {
+      "nama": "Mahdi",
+      "umur": "20",
+      "id": 6
+    }
+  ]
+}
