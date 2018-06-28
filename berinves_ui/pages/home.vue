@@ -1,9 +1,23 @@
 <template>
+  <div class="mt-3">
 
-  <div align="center">
-    
+    <div class="container">
+      <div class="card-columns">
+        <div class="card" v-for="user in users" v-bind:key="user.key">
+          <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+          <div>
+            <div class="card-body" >
+              <h5 class="card-title">{{ user.firstname }}</h5>
+              <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia in ipsa inventore. Harum dignissimos, delectus perferendis architecto alias consequatur fugiat magni rerum hic! Quo, ipsam nostrum? Tenetur, recusandae sunt! Magni?</p>
+              <div>
+                <a href="#" class="btn btn-primary">Join</a>
+              </div>
+            </div>
+          </div>  
+        </div>
+      </div>
+    </div>
   </div>
-    
 </template>
 
 <script>
@@ -19,8 +33,15 @@ export default {
       }
     };
   },
+  computed: {
+      user () { 
+          return this.$store.state.firstname 
+      },
+      
+  },
   mounted() {
-    axios.get("http://localhost:1234/users", {
+    axios
+      .get("http://localhost:4000/userdata", {
         crossDomain: true
       })
       .then(response => {
@@ -51,11 +72,12 @@ export default {
     },
 
     deleteUser(users, id) {
-      axios.delete("http://localhost:1234/users/" + id)
-        .then((response => this.users.splice(index, 1)));
-        window.location.reload();
-    }
-
+      axios
+        .delete("http://localhost:1234/users/" + id)
+        .then(response => this.users.splice(index, 1));
+      window.location.reload();
+    },
+  }
     // async addToAPI() {
     //   try {
     //     const response = await axios.post('http://localhost:1234/users', this.form)
@@ -66,12 +88,12 @@ export default {
     //     console.log(e)
     //   }
     // }
-  }
   // filters: {
   //   currencydecimal(value) {
   //     return value.toFixed(2);
   //   }
   // }
+  
 };
 </script>
 
@@ -99,22 +121,7 @@ export default {
     column-count: 3;
   }
 }
-// showUser() {
-//   axios.get("http://localhost:1234/crud", {
-//     crossDomain: true,
-//     params: {
-//       perPage : this.totalDisplay
-//     }
-//   })
-//   .then(response => {
-//     console.log("Your data catched!");
-//     console.log(response.data);
-//     this.users = response.data;
-//   })
-//   .catch(error => {
-//     console.log(error);
-//   });
-// },
+
 </style>
 
 

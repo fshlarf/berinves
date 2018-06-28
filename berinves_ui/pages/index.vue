@@ -1,17 +1,17 @@
 <template>
-  <section class="container">
-    <div class="card col-md-5">
+  <section  class="container">
+    <div  class="card col-md-5">
       <div>
         <div class="card-body">
-          <p>
+          <h4>
             Registrasi
-          </p>
+          </h4>
           <br>
           <form>
             <div class="form-group row">
               <label for="staticEmail" class="col-sm-4 col-form-label" align="left">Firstname: </label>
               <div class="col-sm-7">
-                <input type="text" class="form-control" placeholder="Jon" v-model="form.firstame">
+                <input type="text" class="form-control" placeholder="Jon" v-model="form.firstname">
               </div>
             </div>
 
@@ -37,9 +37,8 @@
             </div>
             
             <div class="col-sm-12 row justify-content-end">
-              <button type="submit" class="btn btn-primary" @click="registerUser()">Submit</button>
+              <a class="btn btn-primary" href="#" @click="registerUser()">Daftar</a>
             </div>
-
           </form>
         </div>
       </div>
@@ -52,11 +51,12 @@
 import axios from 'axios';
 export default {
   layout: "welcome",
+  
   data() {
     return {
       users: [],
       form: {
-        firstame: "",
+        firstname: "",
         lastname: "",
         email:"",
         password: ""
@@ -67,12 +67,11 @@ export default {
   methods: {
     registerUser() {
       var newUser = {
-        firstame: this.form.firstame,
+        firstname: this.form.firstname,
         lastname: this.form.lastname,
         email: this.form.email,
         password: this.form.password
       };
-      console.log(newUser);
       axios.post("http://localhost:4000/register", this.form)
         .then(response => {
           console.log(response);
@@ -80,8 +79,9 @@ export default {
         .catch(error => {
           console.log(error);
         });
+      this.$router.replace({ 'path' : '/home' });
     },
-  }
+  }  
 }
 </script>
 
@@ -114,5 +114,9 @@ export default {
 
 .links {
   padding-top: 15px;
+}
+
+.btn {
+  cursor: pointer;
 }
 </style>
