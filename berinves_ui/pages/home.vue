@@ -33,12 +33,12 @@ export default {
       }
     };
   },
-  computed: {
-      user () { 
-          return this.$store.state.firstname 
-      },
+  // computed: {
+  //     user () { 
+  //         return this.$store.state.firstname 
+  //     },
       
-  },
+  // },
   mounted() {
     axios
       .get("http://localhost:4000/userdata", {
