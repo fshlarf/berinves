@@ -2,8 +2,12 @@ var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/test');
 
 var userSchema = new mongoose.Schema({
-    firstname: String,
-    lastname: String,
+    firstname: {
+        type: String
+    },
+    lastname: {
+        type: String
+    },
     email: {
         type: String,
         unique: true
@@ -11,7 +15,12 @@ var userSchema = new mongoose.Schema({
     password: {
         type: String,
     },
-    idea: String,
+    title: {
+        type: String
+    },
+    idea: {
+        type: String
+    },
 });
 
 var User = mongoose.model('myusers', userSchema);

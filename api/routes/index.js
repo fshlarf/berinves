@@ -14,6 +14,7 @@ router.post('/register', function(req, res){
   var email     = req.body.email;
   var password  = req.body.password;
   var idea      = req.body.idea;
+  var title     = req.body.title;
 
   var newUser = new User();
   newUser.firstname = firstname;
@@ -21,6 +22,7 @@ router.post('/register', function(req, res){
   newUser.email     = email;
   newUser.password  = password;
   newUser.idea      = idea;
+  newUser.title     = title;
   newUser.save(function(err, saveUser){
     if(err) {
       console.log(err);
@@ -51,9 +53,10 @@ router.put('/update/:id', function(req, res){
       console.log(err);
       res.status(500).send();
     } else {
-      foundObject.firstname = req.body.firstname;
-      foundObject.lastname = req.body.lastname;
-      foundObject.idea = req.body.idea
+      // foundObject.firstname = req.body.firstname;
+      // foundObject.lastname = req.body.lastname;
+      foundObject.idea = req.body.idea;
+      foundObject.title = req.body.title;
       foundObject.save(function(err, updateObject){
         if(err) {
           console.log(err);
@@ -66,6 +69,18 @@ router.put('/update/:id', function(req, res){
     }
   })
 });
+
+router.delete('/userdata/:id', function(req, res){
+  var id = req.params.id;
+  User.findOneAndRemove({_id: id}, function(err){
+    if(err){
+      console.log(err);
+      return res.status(500).send();
+    }
+    return res.status(200).send(); 
+    console.log('Berhasil di delete')
+  })
+})
 
 module.exports = router;
 
