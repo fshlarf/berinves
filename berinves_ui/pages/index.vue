@@ -38,6 +38,7 @@
             
             <div class="col-sm-12 row justify-content-end">
               <a class="btn btn-primary" href="#" @click="registerUser()">Daftar</a>
+              
             </div>
           </form>
         </div>
@@ -66,19 +67,20 @@ export default {
   
   methods: {
     registerUser() {
-      var newUser = {
-        firstname: this.form.firstname,
-        lastname: this.form.lastname,
-        email: this.form.email,
-        password: this.form.password
-      };
-      axios.post("http://localhost:4000/register", this.form)
-        .then(response => {
-          console.log(response);
-        })
-        .catch(error => {
-          console.log(error);
-        });
+      // var newUser = {
+      //   firstname: this.form.firstname,
+      //   lastname: this.form.lastname,
+      //   email: this.form.email,
+      //   password: this.form.password
+      // };
+      // axios.post("http://localhost:4000/register", this.form)
+      //   .then(response => {
+      //     console.log(response);
+      //   })
+      //   .catch(error => {
+      //     console.log(error);
+      //   });
+      // this.$store.dispatch({'path': '/'});
       this.$router.replace({ 'path' : '/home' });
     },
   }  

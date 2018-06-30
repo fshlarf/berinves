@@ -6,8 +6,8 @@
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="coba" aria-controls="coba" aria-expanded="true" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
           </button>
-          <a class="nav-link tech" href="#">Home <span class="sr-only">(current)</span></a>
-          <a class="nav-link entertain" href="#">Profil</a>
+          <a class="nav-link tech" href="#" @click="openHome()">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link entertain" href="#" @click="openProfile">Profil</a>
           <a class="nav-link about" href="#" @click="openAbout()">About</a>
           <!-- <form action="#">
               <label for="search">
@@ -29,9 +29,12 @@ export default {
     openAbout(){
         this.$router.replace({ 'path' : '/about' })
     },
-  //   openEntertain(){
-  //       this.$router.replace({ 'path' : '/entertainment' })
-  //   },
+    openHome(){
+        this.$router.replace({ 'path' : '/home' })
+    },
+    openProfile(){
+        this.$router.replace({ 'path' : '/profile' })
+    },
   },
 }
 </script>
