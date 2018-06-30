@@ -37,7 +37,8 @@
             </div>
             
             <div class="col-sm-12 row justify-content-end">
-              <a class="btn btn-primary" href="#" @click="registerUser()">Daftar</a>
+              <label class="label-login" @click="toLogin">Login</label>
+              <button class="btn btn-primary btn-sm" href="#" @click="registerUser()">Daftar</button>
               
             </div>
           </form>
@@ -83,6 +84,9 @@ export default {
       // this.$store.dispatch({'path': '/'});
       this.$router.replace({ 'path' : '/home' });
     },
+    toLogin (){
+      this.$router.replace({ 'path' : '/login' });
+    }
   }  
 }
 </script>
@@ -121,4 +125,10 @@ export default {
 .btn {
   cursor: pointer;
 }
+
+.label-login {
+  margin-right: 20px;
+  color: dodgerblue;
+}
+
 </style>
