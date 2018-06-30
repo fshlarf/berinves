@@ -1,10 +1,6 @@
 <template>
   <div>
-    <!-- Navigation -->
-    <Navigation/>
-    <!-- Content -->
     <div class="container content">
-      <!-- Content -->
       <nuxt/>
     </div>
     <!-- Footer -->

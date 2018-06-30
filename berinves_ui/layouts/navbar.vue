@@ -1,6 +1,8 @@
 <template>
-  <div class="welcome">
- 
+  <div>
+    <!-- Navigation -->
+    <Navigation/>
+    <!-- Content -->
     <div class="container content">
       <!-- Content -->
       <nuxt/>
@@ -13,24 +15,10 @@
 </template>
 
 <script>
+import Navigation from '~/components/navigation.vue'
 export default {
   components: {
+    Navigation,
   }
 }
 </script>
-
-<style>
-
-.welcome {
-  top: 0;
-  left: 0;
-  width: 100%;
-  min-height: 100%;
-  background: whitesmoke;
-  color: black;
-  padding: 10px;
-}
-.welcome a {
-  color: black;
-}
-</style>

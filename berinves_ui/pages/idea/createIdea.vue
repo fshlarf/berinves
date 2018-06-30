@@ -24,6 +24,8 @@
 <script>
 import axios from "axios";
 
-export default {};
+export default {
+    layout: 'navbar'
+};
 </script>
 

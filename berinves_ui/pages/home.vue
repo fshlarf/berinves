@@ -35,6 +35,7 @@ import Vue from 'vue';
 import VueStringFilter from 'vue-string-filter';
 
 export default {
+  layout: 'navbar',
   data() {
     return {
       users: [],
