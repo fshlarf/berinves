@@ -20,9 +20,17 @@ router.post('/login', function(req, res){
     if(!user) {
       return res.status(404).send();
     }
+    req.session.user = user;
     return res.status(200).send();
   })
 });
+
+router.get('/dashboard', function(req, res){
+  if(!req.session.user) {
+    return res.status(401).send();
+  }
+  return res.status(200).send("Welcome to super-secret API!");
+})
 
 router.post('/register', function(req, res){
   var firstname = req.body.firstname;

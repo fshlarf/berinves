@@ -73,7 +73,14 @@ export default {
         email: this.form.email,
         password: this.form.password
       };
-      axios.post("http://localhost:4000/register", this.form)
+      if(  this.form.firstname == null | this.form.firstname == ""
+        || this.form.lastname == null | this.form.lastname == ""
+        || this.form.email == null | this.form.email == ""
+        || this.form.password == null | this.form.password == ""){
+        return alert('Data yang kamu isi belum lengkap');
+      } else {
+
+        axios.post("http://localhost:4000/register", this.form)
         .then(response => {
           console.log(response);
         })
@@ -81,6 +88,7 @@ export default {
           console.log(error);
         });
       this.$router.replace({ 'path' : '/home' });
+      }
     },
     toLogin (){
       this.$router.replace({ 'path' : '/login' });
