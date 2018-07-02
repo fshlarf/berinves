@@ -3,11 +3,10 @@
         <!-- <div v-if="!$store.state.article.title" class="container"> -->
       <div class="container">
           <!-- <img class="img-nav" src="https://png.icons8.com/metro/1600/nfc-logo.png" alt=""> -->
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="coba" aria-controls="coba" aria-expanded="true" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-          </button>
+          
           <a class="nav-link tech" href="#" @click="openHome()">Home <span class="sr-only">(current)</span></a>
-          <a class="nav-link entertain" href="#" @click="openProfile">Profil</a>
+          <!-- <a class="nav-link" href="#" @click="openProfile">Profil</a> -->
+          <i class="nav-link fa fa-user-o" href="#" @click="openProfile"></i>
           <a class="nav-link about" href="#" @click="openAbout()">About</a>
           <!-- <form action="#">
               <label for="search">

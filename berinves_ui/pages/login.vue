@@ -9,23 +9,23 @@
             <br>
             <form>
                 <div class="form-group row">
-                <label for="staticEmail" class="col-sm-4 col-form-label" align="left">Email</label>
-                <div class="col-sm-7">
-                    <input type="text" class="form-control" placeholder="email@example.com">
-                </div>
+                  <label for="staticEmail" class="col-sm-4 col-form-label" align="left">Email</label>
+                  <div class="col-sm-7">
+                      <input type="text" class="form-control" placeholder="email@example.com" v-model="form.email">
+                  </div>
                 </div>
 
                 <div class="form-group row">
                 <label for="inputPassword" class="col-sm-4 col-form-label" align="left">Password</label>
                 <div class="col-sm-7">
-                    <input type="password" class="form-control" id="inputPassword" placeholder="Password" >
+                    <input type="password" class="form-control" id="inputPassword" placeholder="Password" v-model="form.password">
                 </div>
                 </div>
             </form>
             
             <div class="col-sm-12 row justify-content-end">
                 <label class="label-reg" @click="toRegister">Daftar</label>
-                <button class="btn btn-primary btn-sm" href="#" @click="toHome">Login</button>
+                <button class="btn btn-primary btn-sm" href="#" @click="loginUser">Login</button>
             </div>
         </div>
       </div>
@@ -37,17 +37,41 @@
 import axios from "axios";
 export default {
   layout: "welcome",
+  
   data() {
-    return {};
+    return {
+      users: [],
+      form: {
+        email: "",
+        password: ""
+      }
+    };
   },
 
   methods: {
+
     toRegister() {
       this.$router.replace({ path: "/" });
     },
-    toHome() {
-      this.$router.replace({ path: "/home" });
-     
+    loginUser() {
+      var newUserLogin = {
+        email : this.form.email,
+        password : this.form.password
+      }
+
+      if( this.form.email == null | this.form.email == "" || this.form.password == null | this.form.password ) {
+        return alert('Email atau password tidak boleh kosong!')
+      } else {
+        axios.post('http://localhost:4000/login', this.form)
+        .then(response => {
+          this.$router.replace({ path: "/home" });
+          console.log(response)
+        })
+        .catch(error => {
+          return alert('Password atau email salah')
+          console.log(error);
+        });
+      }
     }
   }
 };

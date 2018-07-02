@@ -8,7 +8,7 @@
             <div class="card-body" >
               <h5 class="card-title" style="color: dodgerblue">{{ user.title }}</h5>
               <p class="author">
-                <b>Penggagas usaha : {{ user.firstname }}</b>
+                Penggagas usaha : {{ user.firstname }}
               </p>
               <p class="card-text" >{{ user.idea }}</p>
               <div>
