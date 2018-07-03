@@ -1,6 +1,11 @@
 <template>
   <div class="mt-3">
-    <div class="container">
+    <div class="">
+      <div class="block">
+        <button class="btn btn-primary btn-add btn-lg" @click="createIdea">
+          <i class="fa fa-plus"></i>
+        </button>
+      </div>
       <div class="card-columns">
         <div class="card" v-for="user in users" v-bind:key="user.idea" v-show="user.idea" >
           <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
@@ -17,11 +22,6 @@
               <!-- button add idea -->
             </div>
             
-          <div class="block">
-            <button class="btn btn-primary btn-add btn-lg" @click="createIdea">
-              <i class="fa fa-plus"></i>
-            </button>
-          </div>
           </div>  
         </div>
       </div>
@@ -106,7 +106,7 @@ export default {
   color: #fff;
   width: 90%;
   padding: 20px;
-  margin-top: 120px;
+  margin-top: 500px;
   z-index: 1;
 }
 

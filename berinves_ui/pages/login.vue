@@ -27,6 +27,7 @@
                 <label class="label-reg" @click="toRegister">Daftar</label>
                 <button class="btn btn-primary btn-sm" href="#" @click="loginUser">Login</button>
             </div>
+            <div></div>
         </div>
       </div>
     </div>

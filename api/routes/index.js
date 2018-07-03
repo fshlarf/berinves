@@ -21,7 +21,8 @@ router.post('/login', function(req, res){
       return res.status(404).send();
     }
     req.session.user = user;
-    return res.status(200).send();
+    return res.status(200).send(user);
+    
   })
 });
 
@@ -93,6 +94,7 @@ router.put('/update/:id', function(req, res){
     }
   })
 });
+
 
 router.delete('/userdata/:id', function(req, res){
   var id = req.params.id;
