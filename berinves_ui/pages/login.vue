@@ -22,12 +22,16 @@
                 </div>
                 </div>
             </form>
+
+            <div>
+              <div class="error" v-html="errorWrongPassword || errorEmpty"></div>
+              <br>
+            </div>
             
             <div class="col-sm-12 row justify-content-end">
                 <label class="label-reg" @click="toRegister">Daftar</label>
                 <button class="btn btn-primary btn-sm" href="#" @click="loginUser">Login</button>
             </div>
-            <div></div>
         </div>
       </div>
     </div>
@@ -45,7 +49,9 @@ export default {
       form: {
         email: "",
         password: ""
-      }
+      },
+      errorWrongPassword: null,
+      errorEmpty: null
     };
   },
 
@@ -60,8 +66,10 @@ export default {
         password : this.form.password
       }
 
-      if( this.form.email == null | this.form.email == "" || this.form.password == null | this.form.password ) {
-        return alert('Email atau password tidak boleh kosong!')
+      if( this.form.email == null | this.form.email == "" || this.form.password == null | this.form.password  == "" ) {
+        // return alert('Email atau password tidak boleh kosong!')
+        this.errorEmpty = 'Email atau password tidak boleh kosong!'
+
       } else {
         axios.post('http://localhost:4000/login', this.form)
         .then(response => {
@@ -69,10 +77,15 @@ export default {
           console.log(response)
         })
         .catch(error => {
-          return alert('Password atau email salah')
+          // return alert('Password atau email salah')
+          this.errorWrongPassword = 'Password atau email salah'
           console.log(error);
+          
         });
+
       }
+
+
     }
   }
 };
@@ -96,4 +109,9 @@ export default {
   color: dodgerblue;
   cursor: pointer;
 }
+
+.error {
+  color: red;
+}
+
 </style>

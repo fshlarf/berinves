@@ -3,6 +3,7 @@ var router = express.Router();
 var User = require('../lib/User');
 
 
+
 /* GET home page. */
 router.get('/', function (req, res, next) {
   res.render('index', { title: 'Express' });
@@ -21,7 +22,7 @@ router.post('/login', function(req, res){
       return res.status(404).send();
     }
     req.session.user = user;
-    return res.status(200).send(user);
+    return res.status(200).send(user.id);
     
   })
 });
@@ -94,6 +95,9 @@ router.put('/update/:id', function(req, res){
     }
   })
 });
+
+
+
 
 
 router.delete('/userdata/:id', function(req, res){

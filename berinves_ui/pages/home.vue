@@ -7,17 +7,17 @@
         </button>
       </div>
       <div class="card-columns">
-        <div class="card" v-for="user in users" v-bind:key="user.idea" v-show="user.idea" >
+        <div class="card" v-for="user in users" v-bind:key="user.idea" v-show="user.idea"  >
           <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
           <div>
             <div class="card-body" >
-              <h5 class="card-title" style="color: dodgerblue">{{ user.title }}</h5>
+              <h5 class="card-title" style="color: dodgerblue" @click="openDetail(user)">{{ user.title }}</h5>
               <p class="author">
                 Penggagas usaha : {{ user.firstname }}
               </p>
               <p class="card-text" >{{ user.idea }}</p>
               <div>
-                <a href="#" class="btn btn-primary btn-sm"> Join </a>
+                <button href="#" class="btn btn-primary btn-sm" @click="openDetail(user)"> Join </button>
               </div>
               <!-- button add idea -->
             </div>
@@ -31,15 +31,12 @@
 
 <script>
 import axios from 'axios';
-import Vue from 'vue';
-import VueStringFilter from 'vue-string-filter';
 
 export default {
   layout: 'navbar',
   data() {
     return {
       users: [],
-      
       form: {
         nama: "",
         umur: ""
@@ -47,8 +44,7 @@ export default {
     };
   },
   mounted() {
-    axios
-      .get("http://localhost:4000/userdata", {
+    axios.get("http://localhost:4000/userdata", {
         crossDomain: true
       })
       .then(response => {
@@ -68,6 +64,10 @@ export default {
         this.$router.replace({ 'path' : '/idea/createIdea' })
     },
     
+    openDetail (data) {
+      this.$store.commit('setuserIdea', data)
+      this.$router.replace({ 'path': '/detail' })
+    }
     // addToAPI() {
     //   var userBaru = {
     //     nama: this.form.nama,

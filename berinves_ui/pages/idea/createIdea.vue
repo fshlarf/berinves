@@ -46,16 +46,15 @@ export default {
     },
 
     methods: {
-        updateIdea(id, users, form) {
+        updateIdea(id, form) {
             var updateData = {
                 title : this.form.title,
                 idea : this.form.idea
             }
 
-            axios.put('http://localhost:4000/update' + id, this.form)
+            axios.put('http://localhost:4000/update/id', this.form)
             .then(response => {
                 console.log(response);
-                response.data = form
             })
             .catch(error => {
                 console.log(error);

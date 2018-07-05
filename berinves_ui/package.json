@@ -13,7 +13,9 @@
     "nuxt": "^1.0.0",
     "sass-loader": "^7.0.3",
     "vue-sticky-bottom-scroll": "^0.1.0",
-    "vue-string-filter": "^1.2.1"
+    "vue-string-filter": "^1.2.1",
+    "vuetify": "^1.1.1",
+    "vuex": "^3.0.1"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",
