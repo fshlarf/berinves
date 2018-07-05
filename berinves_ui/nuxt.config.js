@@ -17,14 +17,21 @@ module.exports = {
       { rel: 'stylesheet', type: 'text/css', href: 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.3/css/bootstrap.min.css' },
       // { rel: 'stylesheet', type: 'text/css', href: 'https://unpkg.com/vuetify/dist/vuetify.min.css' },
       { rel: 'stylesheet', type: 'text/css', href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' }
+    ],
+    script:[
+      {src:'https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js'},
+      {src:'https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js'},
+      {src:'//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js'}
     ]
   },
 
+  plugins: ['~plugins/vuetify.js'],
   // ** Custom SCSS
   // */
   css: [
-    { src: '~/assets/scss/navigation.scss', lang: 'scss' }
+    { src: '~/assets/scss/navigation.scss', lang: 'scss' },
   ],
+  
   /*
   /*
   ** Customize the progress bar color
@@ -59,7 +66,6 @@ module.exports = {
       }
     },
     vendor: ['vue-string-filter'],
-    vendor: ['vuetify']
   },
 }
 

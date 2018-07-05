@@ -52,6 +52,11 @@
 </template>
 
 <script>
+import Vue from 'vue';
+import Vuetify from 'vuetify';
+import '../node_modules/vuetify/dist/vuetify.min.css'
+
+Vue.use(Vuetify)
 
 import axios from 'axios';
 export default {
@@ -66,7 +71,18 @@ export default {
         email:"",
         password: "",
       },
-      errorEmpty: null
+      errorEmpty: null,
+        valid: false,
+      name: '',
+      nameRules: [
+        v => !!v || 'Name is required',
+        v => v.length <= 10 || 'Name must be less than 10 characters'
+      ],
+      email: '',
+      emailRules: [
+        v => !!v || 'E-mail is required',
+        v => /.+@.+/.test(v) || 'E-mail must be valid'
+      ]
     }
   },
   
@@ -129,3 +145,5 @@ export default {
 }
 
 </style>
+
+
