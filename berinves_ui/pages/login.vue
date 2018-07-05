@@ -2,29 +2,29 @@
   <section  class="container cont-login">
     <div  class="card col-md-5">
       <div>
-        <div class="card-body">
-            <h4>
+        <div class="card-body bodiee">
+            <h5 style="color: black">
                 Login
-            </h4>
+            </h5>
             <br>
             <form>
                 <div class="form-group row">
                   <label for="staticEmail" class="col-sm-4 col-form-label" align="left">Email</label>
                   <div class="col-sm-7">
-                      <input type="text" class="form-control" placeholder="email@example.com" v-model="form.email">
+                      <input type="text" class="form-control form-control-sm" placeholder="email@example.com" v-model="form.email">
                   </div>
                 </div>
 
                 <div class="form-group row">
                 <label for="inputPassword" class="col-sm-4 col-form-label" align="left">Password</label>
                 <div class="col-sm-7">
-                    <input type="password" class="form-control" id="inputPassword" placeholder="Password" v-model="form.password">
+                    <input type="password" class="form-control form-control-sm" id="inputPassword" placeholder="Password" v-model="form.password">
                 </div>
                 </div>
             </form>
 
             <div>
-              <div class="error" v-html="errorWrongPassword || errorEmpty"></div>
+              <div class="error" v-html="errorEmpty || errorWrongPassword"></div>
               <br>
             </div>
             
@@ -68,30 +68,32 @@ export default {
 
       if( this.form.email == null | this.form.email == "" || this.form.password == null | this.form.password  == "" ) {
         // return alert('Email atau password tidak boleh kosong!')
-        this.errorEmpty = 'Email atau password tidak boleh kosong!'
+        this.errorEmpty = 'Email atau password tidak boleh kosong!';
 
       } else {
         axios.post('http://localhost:4000/login', this.form)
         .then(response => {
-          this.$router.replace({ path: "/home" });
           console.log(response)
+          this.$router.replace({ path: "/home" });
         })
         .catch(error => {
-          // return alert('Password atau email salah')
-          this.errorWrongPassword = 'Password atau email salah'
           console.log(error);
-          
+          // return alert('Password atau email salah')
+          this.errorWrongPassword = 'Password atau email salah';
+          this.errorEmpty = "";
         });
-
       }
-
-
     }
   }
 };
 </script>
 
 <style>
+.bodiee {
+  font-size: 14px;
+  color: dodgerblue;
+}
+
 .container .cont-login {
   min-height: 100vh;
   display: flex;

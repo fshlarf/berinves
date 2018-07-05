@@ -2,43 +2,43 @@
   <section  class="container cont-reg">
     <div  class="card col-md-5">
       <div>
-        <div class="card-body">
+        <div class="card-body bodiee">
           <br>
-          <h4>
+          <h5 style="color: black">
             Registrasi
-          </h4>
+          </h5>
           <br>
           <form>
             <div class="form-group row">
               <label for="staticEmail" class="col-sm-5 col-form-label" align="left">Nama Depan </label>
               <div class="col-sm-7">
-                <input type="text" class="form-control" placeholder="Jon" v-model="form.firstname">
+                <input type="text" class="form-control form-control-sm" placeholder="Contoh: Jhon" v-model="form.firstname">
               </div>
             </div>
 
             <div class="form-group row">
               <label for="staticEmail" class="col-sm-5 col-form-label" align="left">Nama Belakang </label>
               <div class="col-sm-7">
-                <input type="text" class="form-control" placeholder="Smith" v-model="form.lastname">
+                <input type="text" class="form-control form-control-sm" placeholder="Contoh: Smith" v-model="form.lastname">
               </div>
             </div>
 
             <div class="form-group row">
               <label for="staticEmail" class="col-sm-5 col-form-label" align="left">Email</label>
               <div class="col-sm-7">
-                <input type="text" class="form-control" placeholder="email@example.com" v-model="form.email">
+                <input type="text" class="form-control form-control-sm" placeholder="email@example.com" v-model="form.email">
               </div>
             </div>
 
             <div class="form-group row">
               <label for="inputPassword" class="col-sm-5 col-form-label" align="left">Password</label>
               <div class="col-sm-7">
-                <input type="password" class="form-control" id="inputPassword" placeholder="password" v-model="form.password">
+                <input type="password" class="form-control form-control-sm" id="inputPassword" placeholder="password" v-model="form.password">
               </div>
             </div>
           </form>
 
-          <div class="error" v-html="errorEmpty"></div>
+          <div class="error" v-html="errorEmpty || errorRegisteredEmail"></div>
           <br>
           <div class="col-sm-12 row justify-content-end">
             <label class="label-login" @click="toLogin">Login</label>
@@ -53,10 +53,10 @@
 
 <script>
 import Vue from 'vue';
-import Vuetify from 'vuetify';
-import '../node_modules/vuetify/dist/vuetify.min.css'
+// import Vuetify from 'vuetify';
+// import '../node_modules/vuetify/dist/vuetify.min.css'
 
-Vue.use(Vuetify)
+// Vue.use(Vuetify)
 
 import axios from 'axios';
 export default {
@@ -72,17 +72,7 @@ export default {
         password: "",
       },
       errorEmpty: null,
-        valid: false,
-      name: '',
-      nameRules: [
-        v => !!v || 'Name is required',
-        v => v.length <= 10 || 'Name must be less than 10 characters'
-      ],
-      email: '',
-      emailRules: [
-        v => !!v || 'E-mail is required',
-        v => /.+@.+/.test(v) || 'E-mail must be valid'
-      ]
+      errorRegisteredEmail: null
     }
   },
   
@@ -101,7 +91,6 @@ export default {
         // return alert('Data yang kamu isi belum lengkap');
         this.errorEmpty = "Data yang kamu isi belum lengkap"
       } else {
-
         axios.post("http://localhost:4000/register", this.form)
         .then(response => {
           console.log(response);
@@ -109,7 +98,9 @@ export default {
         })
         .catch(error => {
           console.log(error);
-          return alert('email yang anda buat sudah terdaftar')
+          // return alert('email yang anda buat sudah terdaftar')
+          this.errorRegisteredEmail = 'Email yang kamu masukkan sudah terdaftar'
+          this.errorEmpty = ""
         });
       }
     },
@@ -122,6 +113,12 @@ export default {
 </script>
 
 <style>
+
+.bodiee {
+  font-size: 14px;
+  color: dodgerblue;
+}
+
 .container .cont-reg {
   min-height: 100vh;
   display: flex;

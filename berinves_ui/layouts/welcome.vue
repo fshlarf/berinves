@@ -30,7 +30,5 @@ export default {
   color: black;
   padding: 10px;
 }
-.welcome a {
-  color: black;
-}
+
 </style>
