@@ -2,7 +2,7 @@
 This is my **fullstack web project**. It's a platform digital to share information about your business to other.
 
 ## Motivation
-I build this project for, first, i want to have **some knowledges end some experiences to make a professional fullstack website include server side (backend) and client side (frontend)**. Second, i want to help other to solve their problem.
+I build this project for, first, i want to have **some knowledges and some experiences to make a professional fullstack website include server side (backend) and client side (frontend)**. Second, i want to help other to solve their problem.
 
 ## Build status
 I made it by using mongoDb (database), node.js, express.js (backend) and Nuxt.js, vue.js (frontend).
