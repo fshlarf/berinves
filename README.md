@@ -7,13 +7,9 @@ I build this project for, first, i want to have **some knowledges end some exper
 ## Build status
 I made it by using mongoDb (database), node.js, express.js (backend) and Nuxt.js, vue.js (frontend).
 
-[![Build Status](https://www.mongodb.com/)](https://nodejs.org/en/)
-[![Windows Build Status](https://nuxtjs.org/)](https://getbootstrap.com)
-
-
+ 
 <b>Built with</b>
 - [Visual Studio Code](https://code.visualstudio.com)
-
 
 ## Installation
 1. Clone my project
@@ -22,10 +18,12 @@ I made it by using mongoDb (database), node.js, express.js (backend) and Nuxt.js
 4. cd berinves_ui
 5. npm run dev
 
+## API Reference
+For API, i made it myself.
 
 ## Tests
-For test the backend you need to have **postman**.
+For test the backend you need to have **postman**
 
 
 MIT © [Faishal Arif]()
-[faishal1303@gmail.com]()
+[Faishal Arif]()
