@@ -22,5 +22,4 @@ I made it by using mongoDb (database), node.js, express.js (backend) and Nuxt.js
 For test the backend you need to have **postman**
 
 
-MIT © [Faishal Arif]()
-[faisha1303@gmail.com]()
+MIT © [Faishal Arif <faisha1303@gmail.com>]()
