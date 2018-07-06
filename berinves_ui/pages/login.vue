@@ -74,6 +74,8 @@ export default {
         axios.post('http://localhost:4000/login', this.form)
         .then(response => {
           console.log(response)
+          this.$store.dispatch('setToken', response.data.token)
+          this.$store.dispatch('setUser', response.data.user)
           this.$router.replace({ path: "/home" });
         })
         .catch(error => {

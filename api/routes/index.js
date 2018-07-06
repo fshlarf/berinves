@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var User = require('../lib/User');
-
+var jwt = require('jsonwebtoken');
 
 
 /* GET home page. */
@@ -12,8 +12,9 @@ router.get('/', function (req, res, next) {
 router.post('/login', function(req, res){
   var email     = req.body.email;
   var password  = req.body.password;
-
+  
   User.findOne({email: email, password: password}, function(err, user){
+    var token = jwt.sign({user}, 'my-secret-key')
     if(err) {
       console.log(err);
       return res.status(500).send();
@@ -22,8 +23,12 @@ router.post('/login', function(req, res){
       return res.status(404).send();
     }
     req.session.user = user;
-    return res.status(200).send(user.id);
-    
+    // return res.status(200).send(user)
+    res.status(200)
+    res.json({
+      user: user,
+      token: token
+    })
   })
 });
 
