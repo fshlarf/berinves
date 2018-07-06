@@ -18,12 +18,9 @@ I made it by using mongoDb (database), node.js, express.js (backend) and Nuxt.js
 4. cd berinves_ui
 5. npm run dev
 
-## API Reference
-For API, i made it myself.
-
 ## Tests
 For test the backend you need to have **postman**
 
 
 MIT © [Faishal Arif]()
-[Faishal Arif]()
+[faisha1303@gmail.com]()
