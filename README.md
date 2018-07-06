@@ -1,4 +1,4 @@
-## berinves (berinves.com)
+## Berinves (berinves.com)
 This is my **fullstack web project**. It's a platform digital to share information about your business to other.
 
 ## Motivation
@@ -22,4 +22,5 @@ I made it by using mongoDb (database), node.js, express.js (backend) and Nuxt.js
 For test the backend you need to have **postman**
 
 
-MIT © [Faishal Arif <faisha1303@gmail.com>]()
+MIT © [Faishal Arif]()
+**faisha1303@gmail.com**
