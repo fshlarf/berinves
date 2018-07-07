@@ -60,35 +60,16 @@ export default {
 
   methods: {
      createIdea(){
-        this.$router.replace({ 'path' : '/idea/createIdea' })
+      this.$router.replace({ 'path' : '/idea/createIdea' })
     },
     
     openDetail (data) {
-      this.$store.commit('setuserIdea', data)
+      // this.$store.commit('setuserIdea', data)
+      this.$store.dispatch('setuserIdea', data)
       this.$router.replace({ 'path': '/detail' })
+      console.log(data)
     }
-    // addToAPI() {
-    //   var userBaru = {
-    //     nama: this.form.nama,
-    //     umur: this.form.umur
-    //   };
-    //   console.log(userBaru);
-    //   axios
-    //     .post("http://localhost:1234/users", this.form)
-    //     .then(response => {
-    //       console.log(response);
-    //     })
-    //     .catch(error => {
-    //       console.log(error);
-    //     });
-    // },
-
-    // deleteUser(users, id) {
-    //   axios
-    //     .delete("http://localhost:1234/users/" + id)
-    //     .then(response => this.users.splice(index, 1));
-    //   window.location.reload();
-    // },
+  
   }
 };
 </script>
@@ -140,6 +121,27 @@ export default {
 
 
 
-</style>
+  // addToAPI() {
+  //     var userBaru = {
+  //       nama: this.form.nama,
+  //       umur: this.form.umur
+  //     };
+  //     console.log(userBaru);
+  //     axios
+  //       .post("http://localhost:1234/users", this.form)
+  //       .then(response => {
+  //         console.log(response);
+  //       })
+  //       .catch(error => {
+  //         console.log(error);
+  //       });
+  //   },
 
+  //   deleteUser(users, id) {
+  //     axios
+  //       .delete("http://localhost:1234/users/" + id)
+  //       .then(response => this.users.splice(index, 1));
+  //     window.location.reload();
+  //   },
+</style>
 

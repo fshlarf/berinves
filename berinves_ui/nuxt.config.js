@@ -24,7 +24,8 @@ module.exports = {
     ]
   },
 
-  plugins: ['~plugins/vuetify.js'],
+  plugins: [{ src: '~/plugins/localStorage.js', ssr: false }],
+
   // ** Custom SCSS
   // */
   css: [

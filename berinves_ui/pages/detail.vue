@@ -4,8 +4,8 @@
       <div class="row justify-content-md-center">
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">{{ userIdea.title }}</h5>
-                <p class="card-text">{{ userIdea.idea }}</p>
+                <h5 class="card-title">{{ user.title }}</h5>
+                <p class="card-text">{{ user.idea }}</p>
             <button type="submit" class="btn btn-primary btn-sm"> Join </button>
             </div>
         </div>
@@ -15,11 +15,17 @@
 </template>
 
 <script>
+// import VuexPersistence from 'vuex-persistedstate' 
+
 export default {
     layout: 'navbar',
+    data () {
+        return {
+        }
+    },
     computed: {
-        userIdea () { 
-            return this.$store.state.userIdea 
+        user () { 
+            return this.$store.state.userIdea
         },
     }
 }

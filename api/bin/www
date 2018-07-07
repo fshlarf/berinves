@@ -14,7 +14,7 @@ var http = require('http');
 
 var port = normalizePort(process.env.PORT || '4000');
 app.set('port', port);
-console.log('Successfully connected to MongoDb!');
+console.log('Successfully connected to MongoDb! listening on localhost:' + port);
 
 /**
  * Create HTTP server.

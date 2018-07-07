@@ -39,7 +39,8 @@
 </template>
 
 <script>
-import axios from "axios";
+import axios from "axios"
+
 export default {
   layout: "welcome",
   
@@ -76,7 +77,8 @@ export default {
           console.log(response)
           this.$store.dispatch('setToken', response.data.token)
           this.$store.dispatch('setUser', response.data.user)
-          this.$router.replace({ path: "/home" });
+          // window.localStorage.getItem('setToken', 'setUser')
+          this.$router.push({ path: "/home" })
         })
         .catch(error => {
           console.log(error);
