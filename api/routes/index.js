@@ -112,8 +112,7 @@ router.delete('/userdata/:id', function(req, res){
       console.log(err);
       return res.status(500).send();
     }
-    return res.status(200).send(); 
-    console.log('Berhasil di delete')
+    return res.status(200).send().console.log('Berhasil di delete')
   })
 })
 

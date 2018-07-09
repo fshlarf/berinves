@@ -1,5 +1,6 @@
 <template>
   <section  class="container cont-login">
+    <img class="img-bg" src="https://image.freepik.com/free-photo/office-desk-with-square-space-in-middle_23-2147731412.jpg" alt="">
     <div  class="card col-md-5">
       <div>
         <div class="card-body bodiee">
@@ -11,14 +12,14 @@
                 <div class="form-group row">
                   <label for="staticEmail" class="col-sm-4 col-form-label" align="left">Email</label>
                   <div class="col-sm-7">
-                      <input type="text" class="form-control form-control-sm" placeholder="email@example.com" v-model="form.email">
+                      <input type="text" class="form-control form-control-sm input-bg" placeholder="email@example.com" v-model="form.email">
                   </div>
                 </div>
 
                 <div class="form-group row">
                 <label for="inputPassword" class="col-sm-4 col-form-label" align="left">Password</label>
                 <div class="col-sm-7">
-                    <input type="password" class="form-control form-control-sm" id="inputPassword" placeholder="Password" v-model="form.password">
+                    <input type="password" class="form-control form-control-sm input-bg" id="inputPassword" placeholder="Password" v-model="form.password">
                 </div>
                 </div>
             </form>
@@ -116,8 +117,35 @@ export default {
   cursor: pointer;
 }
 
+.card {
+  background-color: transparent;
+}
+
 .error {
   color: red;
 }
+
+.input-bg {
+  border: 10%;
+  border-color: black;
+  background-color: transparent;
+}
+
+.img-bg {
+  object-fit: cover;
+  z-index: 0;
+  position: fixed;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width:800px) {
+  .img-bg {
+    background-position: left left;
+    width: 800px;
+    height: 800px;
+  }
+}
+
 
 </style>

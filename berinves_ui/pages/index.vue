@@ -1,6 +1,7 @@
 <template>
   <section  class="container cont-reg">
-    <div  class="card col-md-5">
+    <img class="img-bg" src="https://image.freepik.com/free-photo/office-desk-with-square-space-in-middle_23-2147731412.jpg" alt="">
+    <div class="card col-md-5">
       <div>
         <div class="card-body bodiee">
           <br>
@@ -12,28 +13,28 @@
             <div class="form-group row">
               <label for="staticEmail" class="col-sm-5 col-form-label" align="left">Nama Depan </label>
               <div class="col-sm-7">
-                <input type="text" class="form-control form-control-sm" placeholder="Contoh: Jhon" v-model="form.firstname">
+                <input type="text" class="form-control form-control-sm input-bg" placeholder="Contoh: Jhon" v-model="form.firstname">
               </div>
             </div>
 
             <div class="form-group row">
               <label for="staticEmail" class="col-sm-5 col-form-label" align="left">Nama Belakang </label>
               <div class="col-sm-7">
-                <input type="text" class="form-control form-control-sm" placeholder="Contoh: Smith" v-model="form.lastname">
+                <input type="text" class="form-control form-control-sm input-bg" placeholder="Contoh: Smith" v-model="form.lastname">
               </div>
             </div>
 
             <div class="form-group row">
               <label for="staticEmail" class="col-sm-5 col-form-label" align="left">Email</label>
               <div class="col-sm-7">
-                <input type="text" class="form-control form-control-sm" placeholder="email@example.com" v-model="form.email">
+                <input type="text" class="form-control form-control-sm input-bg" placeholder="email@example.com" v-model="form.email">
               </div>
             </div>
 
             <div class="form-group row">
               <label for="inputPassword" class="col-sm-5 col-form-label" align="left">Password</label>
               <div class="col-sm-7">
-                <input type="password" class="form-control form-control-sm" id="inputPassword" placeholder="password" v-model="form.password">
+                <input type="password" class="form-control form-control-sm input-bg" id="inputPassword" placeholder="password" v-model="form.password">
               </div>
             </div>
           </form>
@@ -139,6 +140,33 @@ export default {
 
 .error {
   color: red
+}
+
+.card {
+  background-color: transparent;
+}
+
+.img-bg {
+  object-fit: cover;
+  z-index: 0;
+  position: fixed;
+  width: 100%;
+  height: auto;
+}
+
+.input-bg {
+  border: 10%;
+  border-color: black;
+  background-color: transparent;
+}
+
+
+@media (max-width:800px) {
+  .img-bg {
+    background-position: left left;
+    width: 800px;
+    height: 800px;
+  }
 }
 
 </style>
