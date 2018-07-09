@@ -10,14 +10,14 @@
                     <div class="form-group row">
                     <label for="staticEmail" class="col-md-4 col-form-label" align="left">Judul usaha</label>
                     <div class="col-md-8">
-                        <input type="text" class="form-control" placeholder="Judul ringkas usaha" v-model="form.title">
+                        <input type="text" class="form-control" placeholder="Judul ringkas usaha" v-model="title">
                     </div>
                     </div>
                     
                     <div class="form-group row">
                     <label for="staticEmail" class="col-md-4 col-form-label" align="left" >Deskripsi usaha </label>
                     <div class="col-md-8">
-                        <textarea class="form-control" placeholder="Deskripsi usaha" v-model="form.idea"></textarea>
+                        <textarea class="form-control" placeholder="Deskripsi usaha" v-model="idea"></textarea>
                     </div>
                     </div>
                 </form>
@@ -38,31 +38,33 @@ export default {
     data() {
         return {
             users: [],
-            form: {
-                title:"",
-                idea:""
-            }
+            title:"",
+            idea:""
         }
     },
 
-    methods: {
-        updateIdea(id, form) {
-            var updateData = {
-                title : this.form.title,
-                idea : this.form.idea
-            }
-
-            axios.put('http://localhost:4000/update/id', this.form)
-            .then(response => {
-                console.log(response);
-            })
-            .catch(error => {
-                console.log(error);
-            });
+    computed: {
+        userId () { 
+            return this.$store.state.user._id
         }
+    },
+    
+    methods: {
+        updateIdea(userId, title, idea) {
+            userId  = this.userId;
+            axios.put('http://localhost:4000/update/' + userId, {
+                title: this.title,
+                idea: this.idea,
+            })
+                .then(response => {
+                console.log(response);
+                })
+                .catch(error => {
+                console.log(error);
+                });
+            },
 
-    }
-
+    },
 }   
 </script>
 
