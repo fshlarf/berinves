@@ -117,4 +117,9 @@ export default {
     background-color: white
 }
 
+button:hover, a:hover {
+    opacity: 0.7;
+    background: rgba(221, 221, 221, 0.363)
+}
+
 </style>
