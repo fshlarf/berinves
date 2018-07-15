@@ -20,19 +20,21 @@
                     </div>
                 </div>
                 <p class="title">Pekerjaan</p>
+                <p @click="gotoEdit" style="color: dodgerblue">edit profile</p>
                 <p>{{user.email}}</p>
                 <a href="#"><i class="fa fa-whatsapp"> 0822222222</i></a> 
                 <br>
                 <!-- <p><button>Contact</button></p> -->
             </div>
-            <div class="card" style="margin-top: 20px;">
-               <div class="card-body" align="left">
-                   <i class="fa fa-commenting-o icon-idea" style="color: orange; font-size: 25px"> </i>
-                    <span class="span-idea" style="color: dodgerblue">
+            <div v-show="user.title" class="card" style="margin-top: 15px;">
+               <div class="card-body row" align="left">
+                    <div class="col-2 ">
+                        <i class="fa fa-commenting-o icon-idea" style="color: lightseagreen; font-size: 25px"></i>
+                    </div>
+                    <div class="span-idea col-9" style="color: dodgerblue">
                         {{user.title}}
-                    </span>
+                    </div>
                </div>
-               
             </div>
         </div>
     </div>
@@ -49,8 +51,12 @@ export default {
     computed: {
         user () { 
             return this.$store.state.user 
-            
-        },
+        }
+    },
+    methods: {
+        gotoEdit() {
+            this.$router.replace({ path: "/editprofile" });
+        }
     }
 }
 </script>
@@ -130,10 +136,10 @@ button:hover, a:hover {
         position: relative;
         color: black;
         background: white;
-        padding:10px;
+        padding:3px;
         border-radius: 50%;
         margin-top: 15px;
-        margin-right: 0px;
+        margin-right: 10px;
         font-size: 60px
     }
 }

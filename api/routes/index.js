@@ -2,7 +2,23 @@ var express = require('express');
 var router = express.Router();
 var User = require('../lib/User');
 var jwt = require('jsonwebtoken');
+const multer = require('multer');
+// const upload = multer({dest: 'public/uploads'})
+// set Storage engine
+// const storage = multer.diskStorage({
+//   dest: 'public/uploads',
+//   filename: function(req, file, cb){
+//     cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
+//   }
+// })
 
+// init upload
+const upload = multer({
+  dest: 'public/uploads',
+  filename: function(req, file, cb){
+        cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
+      }
+})
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -46,6 +62,7 @@ router.post('/register', function(req, res){
   var password  = req.body.password;
   var idea      = req.body.idea;
   var title     = req.body.title;
+  var image     = req.body.image;
 
   var newUser = new User();
   newUser.firstname = firstname;
@@ -54,6 +71,7 @@ router.post('/register', function(req, res){
   newUser.password  = password;
   newUser.idea      = idea;
   newUser.title     = title;
+  newUser.image     = image;
   newUser.save(function(err, saveUser){
     if(err) {
       console.log(err);
@@ -101,9 +119,53 @@ router.put('/update/:id', function(req, res){
   })
 });
 
+// *TEST UPLOAD*
 
+// router.post('/', upload.any(), function (req, res, next) {
+//   res.send(req.files)
+// }); 
 
+router.put('/uploadimage/:id', upload.any(), function(req, res){
+  var id = req.params.id;
+  User.findOne({_id: id}, function(err, foundObject){
+    if(err) {
+      console.log(err);
+      res.status(500).send();
+    } else {
+      foundObject.image = req.files.image;
+      foundObject.save(function(err, updateObject){
+        if(err) {
+          console.log(err);
+          res.status(500).send();
+        } else {
+          res.send('image masuk');
+          res.send(updateObject.files)
+        }
+      })
+    }
+  })
+});
 
+// router.post('/uploadimg', function(req,res) {  
+//   upload(req,res, function(err) {  
+//       if(err) {  
+//         console.log(err);
+//         res.status(500).send();
+//       }  
+//       res.send("File is uploaded successfully!");  
+//   });  
+// });  
+
+// router.post('/uploadimg', (req, res) => {
+//   upload(req, res, (err) => {
+//     if(err){
+//       res.status(500).send(err);
+//     } else {
+//       console.log(req.file);
+//       res.send('Done!')
+//     }
+//   })
+// })
 
 router.delete('/userdata/:id', function(req, res){
   var id = req.params.id;
@@ -112,7 +174,7 @@ router.delete('/userdata/:id', function(req, res){
       console.log(err);
       return res.status(500).send();
     }
-    return res.status(200).send().console.log('Berhasil di delete')
+    return res.status(200).send('Berhasil di delete')
   })
 })
 

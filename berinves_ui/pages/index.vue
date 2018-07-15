@@ -53,12 +53,7 @@
 </template>
 
 <script>
-import Vue from 'vue';
-// import Vuetify from 'vuetify';
-// import '../node_modules/vuetify/dist/vuetify.min.css'
-
-// Vue.use(Vuetify)
-
+import AuthService from '@/services/AuthService'
 import axios from 'axios';
 export default {
   layout: "welcome",
@@ -92,7 +87,11 @@ export default {
         // return alert('Data yang kamu isi belum lengkap');
         this.errorEmpty = "Data yang kamu isi belum lengkap"
       } else {
-        axios.post("http://localhost:4000/register", this.form)
+        AuthService.register({firstname: this.form.firstname,
+        lastname: this.form.lastname,
+        email: this.form.email,
+        password: this.form.password})
+        // axios.post('http://localhost:4000/register', this.form)
         .then(response => {
           console.log(response);
           this.$router.replace({ 'path' : '/home' });

@@ -50,21 +50,6 @@
             </a>
          </div>
     </nav>
-    <!-- <nav class="navbar navbar-expand-lg">
-      <div v-if="!$store.state.userIdea.title" class="container">
-          
-          <a class="nav-link tech" href="#" @click="openHome()">Home <span class="sr-only">(current)</span></a>
-          <i class="nav-link fa fa-user-o" href="#" @click="openProfile"></i>
-          <a class="nav-link about" href="#" @click="openAbout()">About</a>
-          
-      </div>
-      <div v-else class="container">
-        <a class="navbar-brand" href="#" @click="goBack()">
-          <i class="fa fa-arrow-left" style="color: white"></i>
-          <span> Back</span>
-        </a>
-      </div>
-    </nav> -->
 </template>
 
 <script>
@@ -107,15 +92,11 @@ export default {
   color: white;
 }
 
-
 // .navbar{
 //  border: none;
 //  background-color: #1a243f;
 // }
 
-.nav-item > li > a:hover {
-    background-color: white
-}
 
 button:hover, a:hover {
     opacity: 0.7;

@@ -20,6 +20,9 @@ var userSchema = new mongoose.Schema({
     idea: {
         type: String
     },
+    image: {
+        type: String
+    }
 });
 
 var User = mongoose.model('myusers', userSchema);

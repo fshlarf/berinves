@@ -1,19 +1,16 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var bodyParser = require('body-parser')
-var session = require('express-session');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const bodyParser = require('body-parser')
+const session = require('express-session');
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-// var config = require('./config/config')
-
-var app = express();
-
+const app = express();
 // menggunakan CORS, API tanpa token
-var cors = require('cors');
+const cors = require('cors');
 app.use(cors());
 
 app.use(function(req, res, next) {
@@ -22,6 +19,9 @@ app.use(function(req, res, next) {
    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
    next();
 });
+
+//static
+app.use(express.static('./public'))
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
