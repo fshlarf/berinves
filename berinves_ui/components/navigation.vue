@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar navbar-expand-lg navbar-light">
+    <nav class="navbar navbar-padding navbar-expand-lg navbar-light">
         <div v-if="!$store.state.userIdea.title" class="container">
             <a class="navbar-brand" style="color: white" href="" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" @click="openHome">berinves.com</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -101,6 +101,15 @@ export default {
 button:hover, a:hover {
     opacity: 0.7;
     background: rgba(221, 221, 221, 0.363)
+}
+
+
+@media (max-width:800px) {
+  .navbar-padding {
+    /* background-position: left left; */
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
 }
 
 </style>

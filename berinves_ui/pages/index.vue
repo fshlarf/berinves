@@ -1,7 +1,46 @@
 <template>
-  <section  class="container cont-reg">
+  <section class="container cont-reg">
     <img class="img-bg" src="https://image.freepik.com/free-photo/te-and-headphones-near-laptop_23-2147772355.jpg" alt="">
-    <div class="card col-md-5">
+    <div class="card demo-card-wide mdl-card mdl-shadow--2dp" align="center">
+      <!-- Textfield with Floating Label -->
+      <div class="card-inner">
+        <h5>Registrasi</h5>
+        <form action="#">
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="text" v-model="form.firstname">
+            <label class="mdl-textfield__label" >Nama Depan</label>
+          </div>
+        </form>
+        <form action="#">
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="text" v-model="form.lastname">
+            <label class="mdl-textfield__label" >Nama Belakang</label>
+          </div>
+        </form>
+        <form action="#">
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="email" v-model="form.email">
+            <label class="mdl-textfield__label" >Email</label>
+          </div>
+        </form>
+        <form action="#">
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="password" v-model="form.password">
+            <label class="mdl-textfield__label" >Password</label>
+          </div>
+        </form>
+        <div class="error" v-html="errorEmpty || errorRegisteredEmail"></div>
+        <div class="mdl-card__actions">
+          <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" @click="toLogin" style="margin-right: 10px;">
+            Login
+          </a>
+          <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" @click="registerUser">
+            Daftar
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="card col-md-5">
       <div>
         <div class="card-body bodiee">
           <br>
@@ -48,7 +87,7 @@
           <br>
         </div>
       </div>
-    </div>
+    </div> -->
   </section>
 </template>
 
@@ -114,11 +153,6 @@ export default {
 
 <style>
 
-.bodiee {
-  font-size: 14px;
-  color: dodgerblue;
-}
-
 .container .cont-reg {
   min-height: 100vh;
   display: flex;
@@ -162,9 +196,16 @@ export default {
 
 @media (max-width:800px) {
   .img-bg {
-    background-position: left left;
+    /* background-position: left left; */
     width: 800px;
     height: 800px;
+  }
+}
+
+@media (max-width:800px) {
+  .card-inner {
+    /* background-position: left left; */
+    padding: 20px
   }
 }
 
