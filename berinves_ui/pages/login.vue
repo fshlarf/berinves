@@ -1,6 +1,6 @@
 <template>
   <section  class="container cont-login">
-    <img class="img-bg" src="https://image.freepik.com/free-photo/office-desk-with-square-space-in-middle_23-2147731412.jpg" alt="">
+    <img class="img-bg" src="https://image.freepik.com/free-photo/te-and-headphones-near-laptop_23-2147772355.jpg" alt="">
     <div  class="card col-md-5">
       <div>
         <div class="card-body bodiee">
