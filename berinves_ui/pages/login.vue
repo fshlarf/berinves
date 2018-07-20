@@ -18,65 +18,29 @@
           </div>
         </form>
         <div>
-          <div class="error" v-html="errorEmpty || errorWrongPassword"></div>
+          <div class="error" v-html="errorEmpty || errorWrongPassword" style="font-size: 12px;"></div>
           <br>
         </div>
         <div class="mdl-card__actions">
-          <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" @click="toRegister" style="margin-right: 10px;">
-            Daftar
-          </a>
+          <nuxt-link to="/" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="margin-right: 10px;">
+              Daftar
+          </nuxt-link>
           <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" @click="loginUser">
             Login
           </button>
         </div>
-    </div>
-    
-    </div>
-    
-    <!-- <div  class="card col-md-5">
-      <div>
-        <div class="card-body bodiee">
-            <h5 style="color: black">
-                Login
-            </h5>
-            <br>
-            <form>
-                <div class="form-group row">
-                  <label for="staticEmail" class="col-sm-4 col-form-label" align="left">Email</label>
-                  <div class="col-sm-7">
-                      <input type="text" class="form-control form-control-sm input-bg" placeholder="email@example.com" v-model="form.email">
-                  </div>
-                </div>
-
-                <div class="form-group row">
-                <label for="inputPassword" class="col-sm-4 col-form-label" align="left">Password</label>
-                <div class="col-sm-7">
-                    <input type="password" class="form-control form-control-sm input-bg" id="inputPassword" placeholder="Password" v-model="form.password">
-                </div>
-                </div>
-            </form>
-
-            <div>
-              <div class="error" v-html="errorEmpty || errorWrongPassword"></div>
-              <br>
-            </div>
-            
-            <div class="col-sm-12 row justify-content-end">
-                <label class="label-reg" @click="toRegister">Daftar</label>
-                <button class="btn btn-primary btn-sm" href="#" @click="loginUser">Login</button>
-            </div>
-        </div>
       </div>
-    </div> -->
+    </div>
   </section>
 </template>
 
 <script>
+
 import axios from "axios"
 
 export default {
   layout: "welcome",
-  
+ 
   data() {
     return {
       users: [],
@@ -88,12 +52,7 @@ export default {
       errorEmpty: null
     };
   },
-
   methods: {
-
-    toRegister() {
-      this.$router.replace({ path: "/" });
-    },
     loginUser() {
       var newUserLogin = {
         email : this.form.email,
@@ -122,7 +81,7 @@ export default {
       }
     }
   }
-};
+}
 </script>
 
 <style>

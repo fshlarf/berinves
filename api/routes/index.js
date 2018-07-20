@@ -95,6 +95,18 @@ router.get('/userdata', function (req, res) {
   })
 });
 
+router.get('/userdata/:id', function (req, res) {
+  var id = req.params.id;
+  User.findOne({_id: id}, function (err, foundData) {
+    if (err) {
+      console.log(err);
+      res.status(500).send();
+    } else {
+      res.send(foundData);
+    }
+  })
+});
+
 router.put('/update/:id', function(req, res){
   var id = req.params.id;
   User.findOne({_id: id}, function(err, foundObject){
@@ -179,11 +191,6 @@ router.delete('/userdata/:id', function(req, res){
 })
 
 module.exports = router;
-
-
-
-
-
 
 
 

@@ -29,11 +29,11 @@
             <label class="mdl-textfield__label" >Password</label>
           </div>
         </form>
-        <div class="error" v-html="errorEmpty || errorRegisteredEmail"></div>
+        <div class="error" v-html="errorEmpty || errorRegisteredEmail" style="font-size: 12px;"></div>
         <div class="mdl-card__actions">
-          <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" @click="toLogin" style="margin-right: 10px;">
+          <nuxt-link to="/login" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="margin-right: 10px;">
             Login
-          </a>
+          </nuxt-link>
           <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" @click="registerUser">
             Daftar
           </button>
@@ -92,7 +92,6 @@
 </template>
 
 <script>
-import AuthService from '@/services/AuthService'
 import axios from 'axios';
 export default {
   layout: "welcome",
@@ -142,11 +141,7 @@ export default {
           this.errorEmpty = ""
         });
       }
-    },
-    toLogin (){
-      this.$router.replace({ 'path' : '/login' });
-    },
-
+    }
   }  
 }
 </script>

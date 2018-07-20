@@ -11,7 +11,10 @@
           <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
           <div>
             <div class="card-body" >
-              <h5 class="card-title" style="color: dodgerblue" @click="openDetail(user)">{{ user.title }}</h5>
+              <!-- <h5 class="card-title" style="color: dodgerblue" @click="openDetail(user)">{{ user.title }}</h5> -->
+              <nuxt-link :to="'/details/'+user._id">
+                {{ user.title }}
+              </nuxt-link>
               <p class="author">
                 Penggagas usaha : {{ user.firstname }}
               </p>
@@ -33,31 +36,10 @@ import axios from 'axios';
 
 export default {
   layout: 'navbar',
-  data() {
-    return {
-      users: [],
-      form: {
-        nama: "",
-        umur: ""
-      }
-    };
+   async asyncData() {
+    const { data } = await axios.get('http://localhost:4000/userdata')
+    return { users: data }
   },
-  mounted() {
-    axios.get("http://localhost:4000/userdata", {
-        crossDomain: true
-      })
-      .then(response => {
-        console.log("Your data catched!");
-        console.log(response.data);
-        this.users = response.data;
-        // this.user.idea = response.data.idea;
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  },
- 
-
   methods: {
      createIdea(){
       this.$router.replace({ 'path' : '/idea/createIdea' })

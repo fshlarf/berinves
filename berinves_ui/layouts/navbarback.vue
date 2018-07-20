@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- Navigation -->
-    <Navigation/>
+    <Navigationback/>
     <!-- Content -->
     <div class="container content">
       <!-- Content -->
@@ -15,10 +15,10 @@
 </template>
 
 <script>
-import Navigation from '~/components/Navigation.vue'
+import Navigationback from '~/components/Navigationback.vue'
 export default {
   components: {
-    Navigation,
+    Navigationback,
   }
 }
 </script>

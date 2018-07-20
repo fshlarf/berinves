@@ -1,8 +1,8 @@
 <template>
-  <div class="mt-4">
+  <div class="mt-4 user">
     <div class="container">
       <div class="row justify-content-md-center">
-        <div class="card">
+        <div class="card card-detail">
             <div class="card-body">
                 <h5 class="card-title">{{ user.title }}</h5>
                 <p class="card-text">{{ user.idea }}</p>
@@ -16,23 +16,23 @@
 
 <script>
 
+import axios from 'axios'
 export default {
-    layout: 'navbar',
-    data () {
-        return {
-        }
-    },
-    computed: {
-        user () { 
-            return this.$store.state.userIdea
-        },
+    layout: 'navbarback',
+    async asyncData({ params, error }) {
+    try {
+      const { data } = await axios.get(`http://localhost:4000/userdata/${params.id}`)
+      return {user: data}
+    } catch (e) {
+      error({ message: 'User not found', statusCode: 404 })
     }
+  }
 }
 </script>
 
 <style>
 
-.card {
+.card .card-detail {
     width: 600px;
 }
 

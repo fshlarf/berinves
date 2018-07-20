@@ -42,11 +42,12 @@
 
 <script>
 
+import {mapMutations} from 'vuex'
 export default {
     layout: 'navbar',
         data () {
             return {
-            }
+        }
     },
     computed: {
         user () { 

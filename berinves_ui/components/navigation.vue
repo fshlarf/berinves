@@ -1,7 +1,7 @@
 <template>
     <nav class="navbar navbar-padding navbar-expand-lg navbar-light">
-        <div v-if="!$store.state.userIdea.title" class="container">
-            <a class="navbar-brand" style="color: white" href="" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" @click="openHome">berinves.com</a>
+        <div class="container">
+            <a class="navbar-brand" style="color: white" href="" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" @click="openHome">usahabaik.com</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fa fa-navicon" style="color: white"></i>
             </button>
@@ -43,38 +43,27 @@
                     </form>
             </div>
         </div>
-        <div v-else class="container">
-            <a class="navbar-brand" href="" @click="goBack()">
-                <i class="fa fa-arrow-left" style="color: white"></i>
-                <span> Back</span>
-            </a>
-         </div>
     </nav>
 </template>
 
 <script>
 export default {
+ 
   methods: {
     openAbout() {
-        this.$router.replace({ path: "/about" });
+      this.$router.replace({ path: "/about" });
     },
     openHome() {
-        this.$router.replace({ path: "/home" });
+      this.$router.replace({ path: "/home" });
     },
     openProfile(user) {
-        this.$router.replace({ path: "/profile" });
-        localStorage.setItem('setUser', user)
-    },
-    goBack() {
-        // this.$store.dispatch("setuserIdea", null);
-        this.$store.dispatch('setuserIdea', {})
-        this.$router.replace({ path: "/home" });
-        // location.reload()
+      this.$router.replace({ path: "/profile" });
+      
     },
     logout() {
-        this.$store.dispatch('setToken', null)
-        this.$store.dispatch('setUser', null)
-        this.$router.replace({ path: "/" });
+      this.$store.dispatch("setToken", null);
+      this.$store.dispatch("setUser", null);
+      this.$router.replace({ path: "/" });
     }
   }
 };
@@ -82,10 +71,9 @@ export default {
 
 <style lang="scss" scoped>
 .navbar-brand {
-    color: white;
-    font-size: 20px;
+  color: white;
+  font-size: 20px;
 }
-
 
 .navbar {
   background-color: lightseagreen;
@@ -97,19 +85,17 @@ export default {
 //  background-color: #1a243f;
 // }
 
-
-button:hover, a:hover {
-    opacity: 0.7;
-    background: rgba(221, 221, 221, 0.363)
+button:hover,
+a:hover {
+  opacity: 0.7;
+  background: rgba(221, 221, 221, 0.363);
 }
 
-
-@media (max-width:800px) {
+@media (max-width: 800px) {
   .navbar-padding {
     /* background-position: left left; */
     padding-top: 15px;
     padding-bottom: 15px;
   }
 }
-
 </style>
