@@ -32,7 +32,7 @@ export default {
 
 <style>
 
-.card .card-detail {
+.card.card-detail {
     width: 600px;
 }
 

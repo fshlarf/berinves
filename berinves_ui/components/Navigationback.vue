@@ -64,23 +64,19 @@ export default {
   color: white;
   font-size: 20px;
 }
-
+.navbar-brand:hover {
+  opacity: none;
+  background: none;
+}
 .navbar {
   background-color: lightseagreen;
   color: white;
 }
-
-// .navbar{
-//  border: none;
-//  background-color: #1a243f;
-// }
-
-button:hover,
 a:hover {
   opacity: 0.7;
   background: rgba(221, 221, 221, 0.363);
+  cursor: pointer;
 }
-
 @media (max-width: 800px) {
   .navbar-padding {
     /* background-position: left left; */

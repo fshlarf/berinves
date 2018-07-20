@@ -1,7 +1,7 @@
 <template>
     <nav class="navbar navbar-padding navbar-expand-lg navbar-light">
         <div class="container">
-            <a class="navbar-brand" style="color: white" href="" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" @click="openHome">usahabaik.com</a>
+            <a class="navbar-brand" style="color: white" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" @click="openHome">usahabaik.com</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fa fa-navicon" style="color: white"></i>
             </button>
@@ -24,18 +24,6 @@
                 <li class="nav-item">
                     <a class="nav-link" style="color: white" href="" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" @click="logout">Logout </a>
                 </li>
-                <!-- <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dropdown
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                    <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </li> -->
-                
                 </ul>
                     <form class="form-inline my-2 my-lg-0">
                         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -48,7 +36,6 @@
 
 <script>
 export default {
- 
   methods: {
     openAbout() {
       this.$router.replace({ path: "/about" });
@@ -58,7 +45,6 @@ export default {
     },
     openProfile(user) {
       this.$router.replace({ path: "/profile" });
-      
     },
     logout() {
       this.$store.dispatch("setToken", null);
@@ -75,20 +61,20 @@ export default {
   font-size: 20px;
 }
 
+.navbar-brand:hover {
+  opacity: none;
+  background: none;
+}
+
 .navbar {
   background-color: lightseagreen;
   color: white;
 }
 
-// .navbar{
-//  border: none;
-//  background-color: #1a243f;
-// }
-
-button:hover,
 a:hover {
   opacity: 0.7;
   background: rgba(221, 221, 221, 0.363);
+  cursor: pointer;
 }
 
 @media (max-width: 800px) {
