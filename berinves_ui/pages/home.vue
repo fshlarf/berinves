@@ -15,14 +15,12 @@
             <div class="card-body" >
               <!-- <h5 class="card-title" style="color: dodgerblue" @click="openDetail(user)">{{ user.title }}</h5> -->
               <nuxt-link class="nuxt-link" :to="'/details/'+user._id">
-                <h5>
-                  {{ user.title }}
-                </h5>
+                <h5>{{ user.title }}</h5>
               </nuxt-link>
                 <p class="author">
                   Penggagas usaha : {{ user.firstname }}
                 </p>
-                <p class="card-text" >{{ user.idea }}</p>
+                <p class="card-text" >{{ user.idea | truncate(160) }}</p>
               <nuxt-link class="nuxt-link" :to="'/details/'+user._id" style="color: white">
                    <button class="btn btn-primary btn-sm">
                     Join
@@ -56,6 +54,17 @@ export default {
       this.$router.replace({ path: "/detail" });
       console.log(data);
     }
+  },
+  filters: {
+     truncate(string, value) {
+      if (!string == '') {
+        if (string.length > 160) {
+          return string.substring(0, value) + ' …'
+        } else {
+          return string + '.'
+        }
+      }
+    }
   }
 };
 </script>
@@ -88,7 +97,6 @@ export default {
   padding-right: 15px;
   padding-left: 15px;
 }
-
 
 .btn-add {
   float: right;

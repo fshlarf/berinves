@@ -18,8 +18,8 @@
 
 import axios from 'axios'
 export default {
-    layout: 'navbarback',
-    async asyncData({ params, error }) {
+  layout: 'navbarback',
+  async asyncData({ params, error }) {
     try {
       const { data } = await axios.get(`http://localhost:4000/userdata/${params.id}`)
       return {user: data}
